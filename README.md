@@ -39,6 +39,6 @@ Look for a section like this in the response:
 }
 ```
 
-Your **Chat ID** is the number shown in `"id"`.
+Your `CHAT_ID` is the number shown in `"id"`.
 
 ---
