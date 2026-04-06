@@ -12,9 +12,9 @@ get a telegram bot token
 get user chat token 
 
 1.Start your bot
-    Open Telegram
-    Search for your bot (the username you created with BotFather)
-    Click Start or send any message (e.g. “hi”)
+  1.1 Open Telegram
+  1.2 Search for your bot (the username you created with BotFather)
+  1.3 Click Start or send any message (e.g. “hi”)
 2. Open in browser:
   https://api.telegram.org/bot<YOUR_BOT_TOKEN>/getUpdates
 3. Look for:
