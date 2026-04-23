@@ -12,11 +12,14 @@ from urllib.parse import urljoin
 # =============================
 
 # GEWOBAG
-GEWOBAG_URL = "https://www.gewobag.de/fuer-mietinteressentinnen/mietangebote/wohnung/?objekttyp%5B%5D=wohnung&bezirke_filter%5B%5D=pankow-prenzlauer-berg&zimmer_von=2&zimmer_bis=4&keinwbs=1"
+GEWOBAG_URL_TWOROOM_BESTLOCATIONS = "https://www.gewobag.de/fuer-mietinteressentinnen/mietangebote/wohnung/?objekttyp%5B%5D=wohnung&bezirke_filter%5B%5D=pankow-prenzlauer-berg&zimmer_von=2&zimmer_bis=4&keinwbs=1"
+GEWOBAG_URL_ONEROOM_ALL = "https://www.gewobag.de/fuer-mietinteressentinnen/mietangebote/wohnung/?objekttyp%5B%5D=wohnung&bezirke_all=1&bezirke_filter%5B%5D=charlottenburg-wilmersdorf&bezirke_filter%5B%5D=charlottenburg-wilmersdorf-charlottenburg&bezirke_filter%5B%5D=charlottenburg-wilmersdorf-grunewald&bezirke_filter%5B%5D=charlottenburg-wilmersdorf-wilmersdorf&bezirke_filter%5B%5D=friedrichshain-kreuzberg&bezirke_filter%5B%5D=friedrichshain-kreuzberg-friedrichshain&bezirke_filter%5B%5D=friedrichshain-kreuzberg-kreuzberg&bezirke_filter%5B%5D=lichtenberg&bezirke_filter%5B%5D=lichtenberg-alt-hohenschoenhausen&bezirke_filter%5B%5D=lichtenberg-falkenberg&bezirke_filter%5B%5D=lichtenberg-fennpfuhl&bezirke_filter%5B%5D=lichtenberg-friedrichsfelde&bezirke_filter%5B%5D=lichtenberg-lichtenberg&bezirke_filter%5B%5D=marzahn-hellersdorf&bezirke_filter%5B%5D=marzahn-hellersdorf-marzahn&bezirke_filter%5B%5D=mitte&bezirke_filter%5B%5D=mitte-moabit&bezirke_filter%5B%5D=mitte-tiergarten&bezirke_filter%5B%5D=mitte-wedding&bezirke_filter%5B%5D=neukoelln&bezirke_filter%5B%5D=neukoelln-britz&bezirke_filter%5B%5D=neukoelln-buckow&bezirke_filter%5B%5D=neukoelln-rudow&bezirke_filter%5B%5D=pankow&bezirke_filter%5B%5D=pankow-prenzlauer-berg&bezirke_filter%5B%5D=pankow-weissensee&bezirke_filter%5B%5D=reinickendorf&bezirke_filter%5B%5D=reinickendorf-hermsdorf&bezirke_filter%5B%5D=reinickendorf-reinickendorf&bezirke_filter%5B%5D=reinickendorf-tegel&bezirke_filter%5B%5D=reinickendorf-waidmannslust&bezirke_filter%5B%5D=spandau&bezirke_filter%5B%5D=spandau-hakenfelde&bezirke_filter%5B%5D=spandau-haselhorst&bezirke_filter%5B%5D=spandau-siemensstadt&bezirke_filter%5B%5D=spandau-spandau&bezirke_filter%5B%5D=steglitz-zehlendorf&bezirke_filter%5B%5D=steglitz-zehlendorf-lichterfelde&bezirke_filter%5B%5D=tempelhof-schoeneberg&bezirke_filter%5B%5D=tempelhof-schoeneberg-lichtenrade&bezirke_filter%5B%5D=tempelhof-schoeneberg-mariendorf&bezirke_filter%5B%5D=tempelhof-schoeneberg-marienfelde&bezirke_filter%5B%5D=tempelhof-schoeneberg-schoeneberg&bezirke_filter%5B%5D=tempelhof-schoeneberg-tempelhof&bezirke_filter%5B%5D=treptow-koepenick&bezirke_filter%5B%5D=treptow-koepenick-gruenau&bezirke_filter%5B%5D=treptow-koepenick-niederschoeneweide&gesamtmiete_von=&gesamtmiete_bis=&gesamtflaeche_von=&gesamtflaeche_bis=&zimmer_von=&zimmer_bis=1&sort-by="
+IBW_SEARCH_URL = "https://www.inberlinwohnen.de/wohnungsfinder"
 
-# InBerlinWohnen
-IBW_SEARCH_URL = 'https://inberlinwohnen.de/wp-content/themes/ibw/skript/search-flats.php'
-IBW_RESULT_URL = 'https://inberlinwohnen.de/suchergebnis/'
+# get query on https://www.inberlinwohnen.de/wohnungsfinder: search for flats, copy q from URL
+IBW_QUERY_TWOROOM_BESTLOCATIONS = "eyJpdiI6InpHNEZkYkJIRFY4QjZDV0hUYVBIeUE9PSIsInZhbHVlIjoiZUY0ODNqZzR2bGVybkpkWDFlUEQ4SmppdG1oeGxFeWdPa3JkWVZ5VEEzZm05QzNOc2l4cVIwdDR2UnBGR05ldXFSQTJkVlVDOGFYR3YxN0FUVTZySTVqUEdyN3VTU0t1Ly82VmdDUFJWdm1ic1RlY2RnRkQ2TmkvZnlUWDNrODZuSk9NT0NwRWg0RVdwVEpxdXA2clIwbko0M3JiMWJyUVJlclJzT3IybmM1UzhUekE2NUlFYkY5aHBnbElrTWdBUUIycHhRR2w3NDUxSFdZbkZLZ3JqMjd0SUNPcEUvZ0RpQkg5ODczbHc5M2srdG52OUlmMXFDbW02c0VJem0xSzVhNHdBcnBCcmFuRGZvc2FMeVg5cExmdFppRWNpV2hhM0ltWXNxY2N1U2s3OWFKN1lYdS9rVzMxQlVmeGx0Y1RIWmRhd2RFZmliekt6TWpxTWZZNHU5cVh1bURpTTVvWlJNSEFIa0Q1VytmTCtzL2JuaktSMU9pbVhxM0UrdStnZU83aGlCQ3drZ1RXUWtzVlpmSWxNRGJhUHNCa21xc0RtRUVUL1VDMnlHU1ZhYVVCUTY3L0w0dlFpY3ZhSS9mZXNYSHlTM0hodUlQWThEbWxOUDFIYndFQ0N3VW5XWDBJOVMzcVhQY1NReUU9IiwibWFjIjoiNWFmMDZjZmJmN2ZkMjZmZGVjY2NlZTRhMDBhMmI1Mjc3ODUyYmJmZGJhZWU3NjVhZGNmNTZlZjFkYWE2NTdiYSIsInRhZyI6IiJ9"
+IBW_QUERY_ONEROOM_ALL = "eyJpdiI6IldINGhxV0hOdzZhL29WdUZkZVo5R2c9PSIsInZhbHVlIjoiM3dyRjFSdmJPOElKODBvM0hRM0xNRzJvMG43eEI5Y3ZMTHE2bUM0YlZsL2dKRmowK2tYU0RQQmRkQkZMMXl5cmJVa1p4cDNuVDY4VHMzSFE2MmFzVVlMUTlDYVJtcFh3RUNJSjRYclkxOWVMOFlNc0J2V25yb3BVZnN5TmEveVZPZEgzZ1cvMEZGdGYxdiswMG05MUppMDRyWFg5UzEwVHZnN04rOVY5b2dDMEFHbjNaZ1Y3RXRSei9kTGxxbXZuVmF0MGxNUUFGMXJUeExoMmFxRnZIblVIZm5RVW5pVlFnZEVIMHVDVTZ6TnJmcGZBeFVtUG9YSUVNS0VkNXZTZWVuTE9WZUFVUXNYRUVkNk43RVR0KzF1UHF2cy93YXZBck9QdGFGVXAxL2lHTjBRbHV4ZllpYkVBMzBZTGVoNFJDc0twNHkzZ1pTN0dJOXVNRVhLK3FFN2Y3Sms4dGQyUnd4TU9LYXZ1QnpLaHZueXJuV2t2cXZYdzJoSDB0alFiQjRlcHdEUFBJZWtDalZVQWNHM0xqV1c4czhuZXN3QlBlb2JkNDYzWjcrbz0iLCJtYWMiOiJhNDIwNDMyYzA3NDM3ZjU0NWY3MWUzNTdlZTlmZmU4MGQ5MDNlMzU1YjUyY2Q5OTYxMDRhNDkzZmE5MjM4OGI5IiwidGFnIjoiIn0%3D"
+
 
 CHECK_INTERVAL = 60  # seconds
 GEWOBAG_FILE = "gewobag_listings.json"
@@ -49,7 +52,7 @@ def send_telegram(message):
 # =============================
 
 def get_gewobag_listings():
-    response = requests.get(GEWOBAG_URL, headers=HEADERS)
+    response = requests.get(GEWOBAG_URL_TWOROOM_BESTLOCATIONS, headers=HEADERS)
     soup = BeautifulSoup(response.text, "html.parser")
     listings = []
     offers = soup.find_all("article", class_="angebot-big-box")
@@ -91,21 +94,9 @@ def load_gewobag():
 # =============================
 # INBERLINWOHNEN SCRAPER
 # =============================
-# =============================
-# CONFIG
-# =============================
-IBW_SEARCH_URL = "https://www.inberlinwohnen.de/wohnungsfinder"
-IBW_QUERY = "eyJpdiI6InpHNEZkYkJIRFY4QjZDV0hUYVBIeUE9PSIsInZhbHVlIjoiZUY0ODNqZzR2bGVybkpkWDFlUEQ4SmppdG1oeGxFeWdPa3JkWVZ5VEEzZm05QzNOc2l4cVIwdDR2UnBGR05ldXFSQTJkVlVDOGFYR3YxN0FUVTZySTVqUEdyN3VTU0t1Ly82VmdDUFJWdm1ic1RlY2RnRkQ2TmkvZnlUWDNrODZuSk9NT0NwRWg0RVdwVEpxdXA2clIwbko0M3JiMWJyUVJlclJzT3IybmM1UzhUekE2NUlFYkY5aHBnbElrTWdBUUIycHhRR2w3NDUxSFdZbkZLZ3JqMjd0SUNPcEUvZ0RpQkg5ODczbHc5M2srdG52OUlmMXFDbW02c0VJem0xSzVhNHdBcnBCcmFuRGZvc2FMeVg5cExmdFppRWNpV2hhM0ltWXNxY2N1U2s3OWFKN1lYdS9rVzMxQlVmeGx0Y1RIWmRhd2RFZmliekt6TWpxTWZZNHU5cVh1bURpTTVvWlJNSEFIa0Q1VytmTCtzL2JuaktSMU9pbVhxM0UrdStnZU83aGlCQ3drZ1RXUWtzVlpmSWxNRGJhUHNCa21xc0RtRUVUL1VDMnlHU1ZhYVVCUTY3L0w0dlFpY3ZhSS9mZXNYSHlTM0hodUlQWThEbWxOUDFIYndFQ0N3VW5XWDBJOVMzcVhQY1NReUU9IiwibWFjIjoiNWFmMDZjZmJmN2ZkMjZmZGVjY2NlZTRhMDBhMmI1Mjc3ODUyYmJmZGJhZWU3NjVhZGNmNTZlZjFkYWE2NTdiYSIsInRhZyI6IiJ9"
-HEADERS = {
-    "User-Agent": "Mozilla/5.0"
-}
-
-# =============================
-# SCRAPER
-# =============================
 
 def get_ibw_listings():
-    params = {"q": IBW_QUERY}
+    params = {"q": IBW_QUERY_TWOROOM_BESTLOCATIONS}
     resp = requests.get(IBW_SEARCH_URL, headers=HEADERS, params=params, timeout=20)
     resp.raise_for_status()
 
