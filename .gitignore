@@ -1,0 +1,3 @@
+echo "secrets.py
+__pycache__/
+*.json" >> .gitignore
