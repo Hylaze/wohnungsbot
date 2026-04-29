@@ -8,6 +8,7 @@ import urllib
 from urllib.parse import urljoin
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
+from secrets import BOT_TOKEN, CHAT_IDS
 
 retries = Retry(
     total=5,
@@ -33,12 +34,6 @@ CHECK_INTERVAL = 300  # seconds
 GEWOBAG_FILE = "gewobag_listings.json"
 IBW_FILE = "ibw_listings.json"
 
-BOT_TOKEN = ""
-
-CHAT_IDS = [
-    "" # your chat token 
-      # weitere
-]
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
                   "AppleWebKit/537.36 (KHTML, like Gecko) "
