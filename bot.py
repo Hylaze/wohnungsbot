@@ -6,6 +6,14 @@ import os
 from lxml import html
 import urllib
 from urllib.parse import urljoin
+from requests.adapters import HTTPAdapter
+from urllib3.util.retry import Retry
+
+retries = Retry(
+    total=5,
+    backoff_factor=2,
+    status_forcelist=[429, 500, 502, 503, 504],
+)
 
 # =============================
 # CONFIG
@@ -21,7 +29,7 @@ IBW_QUERY_TWOROOM_BESTLOCATIONS = "eyJpdiI6InpHNEZkYkJIRFY4QjZDV0hUYVBIeUE9PSIsI
 IBW_QUERY_ONEROOM_ALL = "eyJpdiI6IldINGhxV0hOdzZhL29WdUZkZVo5R2c9PSIsInZhbHVlIjoiM3dyRjFSdmJPOElKODBvM0hRM0xNRzJvMG43eEI5Y3ZMTHE2bUM0YlZsL2dKRmowK2tYU0RQQmRkQkZMMXl5cmJVa1p4cDNuVDY4VHMzSFE2MmFzVVlMUTlDYVJtcFh3RUNJSjRYclkxOWVMOFlNc0J2V25yb3BVZnN5TmEveVZPZEgzZ1cvMEZGdGYxdiswMG05MUppMDRyWFg5UzEwVHZnN04rOVY5b2dDMEFHbjNaZ1Y3RXRSei9kTGxxbXZuVmF0MGxNUUFGMXJUeExoMmFxRnZIblVIZm5RVW5pVlFnZEVIMHVDVTZ6TnJmcGZBeFVtUG9YSUVNS0VkNXZTZWVuTE9WZUFVUXNYRUVkNk43RVR0KzF1UHF2cy93YXZBck9QdGFGVXAxL2lHTjBRbHV4ZllpYkVBMzBZTGVoNFJDc0twNHkzZ1pTN0dJOXVNRVhLK3FFN2Y3Sms4dGQyUnd4TU9LYXZ1QnpLaHZueXJuV2t2cXZYdzJoSDB0alFiQjRlcHdEUFBJZWtDalZVQWNHM0xqV1c4czhuZXN3QlBlb2JkNDYzWjcrbz0iLCJtYWMiOiJhNDIwNDMyYzA3NDM3ZjU0NWY3MWUzNTdlZTlmZmU4MGQ5MDNlMzU1YjUyY2Q5OTYxMDRhNDkzZmE5MjM4OGI5IiwidGFnIjoiIn0%3D"
 
 
-CHECK_INTERVAL = 60  # seconds
+CHECK_INTERVAL = 300  # seconds
 GEWOBAG_FILE = "gewobag_listings.json"
 IBW_FILE = "ibw_listings.json"
 
@@ -31,8 +39,21 @@ CHAT_IDS = [
     "" # your chat token 
       # weitere
 ]
-HEADERS = {"User-Agent": "Mozilla/5.0"}
+HEADERS = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                  "AppleWebKit/537.36 (KHTML, like Gecko) "
+                  "Chrome/123.0.0.0 Safari/537.36",
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+    "Accept-Language": "de-DE,de;q=0.9,en-US;q=0.8,en;q=0.7",
+    "Connection": "keep-alive",
+    "Upgrade-Insecure-Requests": "1",
+}
 
+
+session = requests.Session()
+session.headers.update(HEADERS)
+
+session.mount("https://", HTTPAdapter(max_retries=retries))
 # =============================
 # TELEGRAM FUNCTION
 # =============================
@@ -50,9 +71,15 @@ def send_telegram(message):
 # =============================
 # GEWOBAG SCRAPER
 # =============================
-
+def safe_get(url, **kwargs):
+    try:
+        return session.get(url, timeout=15, **kwargs)
+    except requests.exceptions.RequestException as e:
+        print("Request failed:", e)
+        return None
+        
 def get_gewobag_listings():
-    response = requests.get(GEWOBAG_URL_TWOROOM_BESTLOCATIONS, headers=HEADERS)
+    response = safe_get(GEWOBAG_URL_TWOROOM_BESTLOCATIONS, headers=HEADERS)
     soup = BeautifulSoup(response.text, "html.parser")
     listings = []
     offers = soup.find_all("article", class_="angebot-big-box")
@@ -64,7 +91,7 @@ def get_gewobag_listings():
 
 def get_gewobag_details(url):
     try:
-        r = requests.get(url, headers=HEADERS, timeout=20)
+        r = safe_get(url, headers=HEADERS, timeout=20)
         soup = BeautifulSoup(r.text, "html.parser")
     except:
         return None
