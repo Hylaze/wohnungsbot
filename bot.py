@@ -20,19 +20,14 @@ retries = Retry(
 # CONFIG
 # =============================
 
-# GEWOBAG
-GEWOBAG_URL_TWOROOM_BESTLOCATIONS = "https://www.gewobag.de/fuer-mietinteressentinnen/mietangebote/wohnung/?objekttyp%5B%5D=wohnung&bezirke_filter%5B%5D=pankow-prenzlauer-berg&zimmer_von=2&zimmer_bis=4&keinwbs=1"
-GEWOBAG_URL_ONEROOM_ALL = "https://www.gewobag.de/fuer-mietinteressentinnen/mietangebote/wohnung/?objekttyp%5B%5D=wohnung&bezirke_all=1&bezirke_filter%5B%5D=charlottenburg-wilmersdorf&bezirke_filter%5B%5D=charlottenburg-wilmersdorf-charlottenburg&bezirke_filter%5B%5D=charlottenburg-wilmersdorf-grunewald&bezirke_filter%5B%5D=charlottenburg-wilmersdorf-wilmersdorf&bezirke_filter%5B%5D=friedrichshain-kreuzberg&bezirke_filter%5B%5D=friedrichshain-kreuzberg-friedrichshain&bezirke_filter%5B%5D=friedrichshain-kreuzberg-kreuzberg&bezirke_filter%5B%5D=lichtenberg&bezirke_filter%5B%5D=lichtenberg-alt-hohenschoenhausen&bezirke_filter%5B%5D=lichtenberg-falkenberg&bezirke_filter%5B%5D=lichtenberg-fennpfuhl&bezirke_filter%5B%5D=lichtenberg-friedrichsfelde&bezirke_filter%5B%5D=lichtenberg-lichtenberg&bezirke_filter%5B%5D=marzahn-hellersdorf&bezirke_filter%5B%5D=marzahn-hellersdorf-marzahn&bezirke_filter%5B%5D=mitte&bezirke_filter%5B%5D=mitte-moabit&bezirke_filter%5B%5D=mitte-tiergarten&bezirke_filter%5B%5D=mitte-wedding&bezirke_filter%5B%5D=neukoelln&bezirke_filter%5B%5D=neukoelln-britz&bezirke_filter%5B%5D=neukoelln-buckow&bezirke_filter%5B%5D=neukoelln-rudow&bezirke_filter%5B%5D=pankow&bezirke_filter%5B%5D=pankow-prenzlauer-berg&bezirke_filter%5B%5D=pankow-weissensee&bezirke_filter%5B%5D=reinickendorf&bezirke_filter%5B%5D=reinickendorf-hermsdorf&bezirke_filter%5B%5D=reinickendorf-reinickendorf&bezirke_filter%5B%5D=reinickendorf-tegel&bezirke_filter%5B%5D=reinickendorf-waidmannslust&bezirke_filter%5B%5D=spandau&bezirke_filter%5B%5D=spandau-hakenfelde&bezirke_filter%5B%5D=spandau-haselhorst&bezirke_filter%5B%5D=spandau-siemensstadt&bezirke_filter%5B%5D=spandau-spandau&bezirke_filter%5B%5D=steglitz-zehlendorf&bezirke_filter%5B%5D=steglitz-zehlendorf-lichterfelde&bezirke_filter%5B%5D=tempelhof-schoeneberg&bezirke_filter%5B%5D=tempelhof-schoeneberg-lichtenrade&bezirke_filter%5B%5D=tempelhof-schoeneberg-mariendorf&bezirke_filter%5B%5D=tempelhof-schoeneberg-marienfelde&bezirke_filter%5B%5D=tempelhof-schoeneberg-schoeneberg&bezirke_filter%5B%5D=tempelhof-schoeneberg-tempelhof&bezirke_filter%5B%5D=treptow-koepenick&bezirke_filter%5B%5D=treptow-koepenick-gruenau&bezirke_filter%5B%5D=treptow-koepenick-niederschoeneweide&gesamtmiete_von=&gesamtmiete_bis=&gesamtflaeche_von=&gesamtflaeche_bis=&zimmer_von=&zimmer_bis=1&sort-by="
+GEWOBAG_URL = "https://www.gewobag.de/fuer-mietinteressentinnen/mietangebote/wohnung/?objekttyp%5B%5D=wohnung&bezirke_all=1&bezirke_filter%5B%5D=charlottenburg-wilmersdorf&bezirke_filter%5B%5D=charlottenburg-wilmersdorf-charlottenburg&bezirke_filter%5B%5D=charlottenburg-wilmersdorf-grunewald&bezirke_filter%5B%5D=charlottenburg-wilmersdorf-schmargendorf&bezirke_filter%5B%5D=charlottenburg-wilmersdorf-wilmersdorf&bezirke_filter%5B%5D=friedrichshain-kreuzberg&bezirke_filter%5B%5D=friedrichshain-kreuzberg-friedrichshain&bezirke_filter%5B%5D=friedrichshain-kreuzberg-kreuzberg&bezirke_filter%5B%5D=lichtenberg&bezirke_filter%5B%5D=lichtenberg-alt-hohenschoenhausen&bezirke_filter%5B%5D=lichtenberg-falkenberg&bezirke_filter%5B%5D=lichtenberg-fennpfuhl&bezirke_filter%5B%5D=lichtenberg-friedrichsfelde&bezirke_filter%5B%5D=lichtenberg-lichtenberg&bezirke_filter%5B%5D=marzahn-hellersdorf&bezirke_filter%5B%5D=marzahn-hellersdorf-marzahn&bezirke_filter%5B%5D=mitte&bezirke_filter%5B%5D=mitte-moabit&bezirke_filter%5B%5D=mitte-wedding&bezirke_filter%5B%5D=neukoelln&bezirke_filter%5B%5D=neukoelln-britz&bezirke_filter%5B%5D=neukoelln-buckow&bezirke_filter%5B%5D=neukoelln-neukoelln&bezirke_filter%5B%5D=neukoelln-rudow&bezirke_filter%5B%5D=pankow&bezirke_filter%5B%5D=pankow-prenzlauer-berg&bezirke_filter%5B%5D=pankow-weissensee&bezirke_filter%5B%5D=reinickendorf&bezirke_filter%5B%5D=reinickendorf-hermsdorf&bezirke_filter%5B%5D=reinickendorf-reinickendorf&bezirke_filter%5B%5D=reinickendorf-tegel&bezirke_filter%5B%5D=reinickendorf-waidmannslust&bezirke_filter%5B%5D=spandau&bezirke_filter%5B%5D=spandau-haselhorst&bezirke_filter%5B%5D=spandau-siemensstadt&bezirke_filter%5B%5D=spandau-spandau&bezirke_filter%5B%5D=steglitz-zehlendorf&bezirke_filter%5B%5D=steglitz-zehlendorf-lichterfelde&bezirke_filter%5B%5D=tempelhof-schoeneberg&bezirke_filter%5B%5D=tempelhof-schoeneberg-lichtenrade&bezirke_filter%5B%5D=tempelhof-schoeneberg-mariendorf&bezirke_filter%5B%5D=tempelhof-schoeneberg-marienfelde&bezirke_filter%5B%5D=tempelhof-schoeneberg-schoeneberg&bezirke_filter%5B%5D=tempelhof-schoeneberg-tempelhof&bezirke_filter%5B%5D=treptow-koepenick&bezirke_filter%5B%5D=treptow-koepenick-gruenau&bezirke_filter%5B%5D=treptow-koepenick-koepenick&bezirke_filter%5B%5D=treptow-koepenick-niederschoeneweide&bezirke_filter%5B%5D=treptow-koepenick-oberschoeneweide&gesamtmiete_von=&gesamtmiete_bis=550&gesamtflaeche_von=&gesamtflaeche_bis=&zimmer_von=&zimmer_bis=1&keinwbs=1&sort-by="
 IBW_SEARCH_URL = "https://www.inberlinwohnen.de/wohnungsfinder"
+IBW_QUERY = "eyJpdiI6IkRWeGtDMWU0c251VFhDTmVlL3J5YWc9PSIsInZhbHVlIjoiQ2ZwKzlTbWxhaTkzQUx1QmZ6K0dKNWhuZ21IZDVESXh5bWVyYWlxblpDa3dzZitvbUpsdHZQeEtpZUlSUkZrcitWS01uY0lMVTExYTFueDBFVEFhRHFDb2EyK1d5QUtnc3NCd1ZKckJZbnZ1Z1BBWml1L2JRY1E1ZUZQQVN4Z2pNVG5qS1RIY2wwcE5wNGV3YlJoa1paa1pnMTJJbUg0UkZURUNER2NDRTJKWDBtam1SRUswdjlLVWljQTZLeHYvaWVuYytKeEZKVk9qV3pSUFFWdWxlZy9yT0lQc242K2g4SzlaUXVsT0dpUmtBZGhkcjBjVXRkNndXdnVUdHdxV0xKSXk1aUE3YndTU0lyU1N1NjhiSVJlRGRmYjhEWkkzUWF0UC92dUxvTjdOZnZleUhYMWpDVStPYVhzYUZ4ckFsVGJIWkpoekJIZjFCclZqYWhBMlVPcFhLekJtd09BOFR6YjJUZStwaS9YTEVPV2hlSzhHYzkvN044akZOY01Oa3g1T1dPaHJKMXNjN2Rqa2J0bm1oRnUycnhJVGxoY0pFazUxakZSaGFmWT0iLCJtYWMiOiIwMjFlYmM4ZWYzOTgzZTYyOTAzNmEzNDdiOGYzNjg4NzNkZjQ2MTJjNjc5NDY4MDExMDlmYjI5M2YyNTBiNjE1IiwidGFnIjoiIn0%3D"
 
-# get query on https://www.inberlinwohnen.de/wohnungsfinder: search for flats, copy q from URL
-IBW_QUERY_TWOROOM_BESTLOCATIONS = "eyJpdiI6InpHNEZkYkJIRFY4QjZDV0hUYVBIeUE9PSIsInZhbHVlIjoiZUY0ODNqZzR2bGVybkpkWDFlUEQ4SmppdG1oeGxFeWdPa3JkWVZ5VEEzZm05QzNOc2l4cVIwdDR2UnBGR05ldXFSQTJkVlVDOGFYR3YxN0FUVTZySTVqUEdyN3VTU0t1Ly82VmdDUFJWdm1ic1RlY2RnRkQ2TmkvZnlUWDNrODZuSk9NT0NwRWg0RVdwVEpxdXA2clIwbko0M3JiMWJyUVJlclJzT3IybmM1UzhUekE2NUlFYkY5aHBnbElrTWdBUUIycHhRR2w3NDUxSFdZbkZLZ3JqMjd0SUNPcEUvZ0RpQkg5ODczbHc5M2srdG52OUlmMXFDbW02c0VJem0xSzVhNHdBcnBCcmFuRGZvc2FMeVg5cExmdFppRWNpV2hhM0ltWXNxY2N1U2s3OWFKN1lYdS9rVzMxQlVmeGx0Y1RIWmRhd2RFZmliekt6TWpxTWZZNHU5cVh1bURpTTVvWlJNSEFIa0Q1VytmTCtzL2JuaktSMU9pbVhxM0UrdStnZU83aGlCQ3drZ1RXUWtzVlpmSWxNRGJhUHNCa21xc0RtRUVUL1VDMnlHU1ZhYVVCUTY3L0w0dlFpY3ZhSS9mZXNYSHlTM0hodUlQWThEbWxOUDFIYndFQ0N3VW5XWDBJOVMzcVhQY1NReUU9IiwibWFjIjoiNWFmMDZjZmJmN2ZkMjZmZGVjY2NlZTRhMDBhMmI1Mjc3ODUyYmJmZGJhZWU3NjVhZGNmNTZlZjFkYWE2NTdiYSIsInRhZyI6IiJ9"
-IBW_QUERY_ONEROOM_ALL = "eyJpdiI6IldINGhxV0hOdzZhL29WdUZkZVo5R2c9PSIsInZhbHVlIjoiM3dyRjFSdmJPOElKODBvM0hRM0xNRzJvMG43eEI5Y3ZMTHE2bUM0YlZsL2dKRmowK2tYU0RQQmRkQkZMMXl5cmJVa1p4cDNuVDY4VHMzSFE2MmFzVVlMUTlDYVJtcFh3RUNJSjRYclkxOWVMOFlNc0J2V25yb3BVZnN5TmEveVZPZEgzZ1cvMEZGdGYxdiswMG05MUppMDRyWFg5UzEwVHZnN04rOVY5b2dDMEFHbjNaZ1Y3RXRSei9kTGxxbXZuVmF0MGxNUUFGMXJUeExoMmFxRnZIblVIZm5RVW5pVlFnZEVIMHVDVTZ6TnJmcGZBeFVtUG9YSUVNS0VkNXZTZWVuTE9WZUFVUXNYRUVkNk43RVR0KzF1UHF2cy93YXZBck9QdGFGVXAxL2lHTjBRbHV4ZllpYkVBMzBZTGVoNFJDc0twNHkzZ1pTN0dJOXVNRVhLK3FFN2Y3Sms4dGQyUnd4TU9LYXZ1QnpLaHZueXJuV2t2cXZYdzJoSDB0alFiQjRlcHdEUFBJZWtDalZVQWNHM0xqV1c4czhuZXN3QlBlb2JkNDYzWjcrbz0iLCJtYWMiOiJhNDIwNDMyYzA3NDM3ZjU0NWY3MWUzNTdlZTlmZmU4MGQ5MDNlMzU1YjUyY2Q5OTYxMDRhNDkzZmE5MjM4OGI5IiwidGFnIjoiIn0%3D"
-
-
-CHECK_INTERVAL = 300  # seconds
 GEWOBAG_FILE = "gewobag_listings.json"
 IBW_FILE = "ibw_listings.json"
+
+CHECK_INTERVAL = 300  
 
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
@@ -43,12 +38,10 @@ HEADERS = {
     "Connection": "keep-alive",
     "Upgrade-Insecure-Requests": "1",
 }
-
-
 session = requests.Session()
 session.headers.update(HEADERS)
-
 session.mount("https://", HTTPAdapter(max_retries=retries))
+
 # =============================
 # TELEGRAM FUNCTION
 # =============================
@@ -66,6 +59,7 @@ def send_telegram(message):
 # =============================
 # GEWOBAG SCRAPER
 # =============================
+
 def safe_get(url, **kwargs):
     try:
         return session.get(url, timeout=15, **kwargs)
@@ -74,7 +68,7 @@ def safe_get(url, **kwargs):
         return None
         
 def get_gewobag_listings():
-    response = safe_get(GEWOBAG_URL_TWOROOM_BESTLOCATIONS, headers=HEADERS)
+    response = safe_get(GEWOBAG_URL, headers=HEADERS)
     soup = BeautifulSoup(response.text, "html.parser")
     listings = []
     offers = soup.find_all("article", class_="angebot-big-box")
@@ -118,7 +112,7 @@ def load_gewobag():
 # =============================
 
 def get_ibw_listings():
-    params = {"q": IBW_QUERY_TWOROOM_BESTLOCATIONS}
+    params = {"q": IBW_QUERY}
     resp = requests.get(IBW_SEARCH_URL, headers=HEADERS, params=params, timeout=20)
     resp.raise_for_status()
 
@@ -165,7 +159,8 @@ def get_ibw_listings():
 
                 rent_net = float(apt.get("rent_net", 0))
                 extra_costs = float(apt.get("extra_costs", 0))
-                rent_gross = rent_net + extra_costs
+                heating_costs = float(apt.get("heating_costs", 0))
+                rent_gross = rent_net + extra_costs + heating_costs
                 rent_gross_str = f"€{rent_gross:,.2f}"  # z.B. €822.45
 
                 listings.append({
@@ -216,7 +211,7 @@ if not ibw_known:
     ibw_known = [f['link'] for f in get_ibw_listings()]
     save_ibw(ibw_known)
 print("ibw:",ibw_known)
-print("ibwlen",len(ibw_known))
+
 try:
     while True:
         # Fetch current listings
@@ -248,16 +243,20 @@ try:
         for listing in new_ibw:
             details = next((f for f in ibw_all if f["link"] == listing), None)
             if details:
-                message = f"""
-🚨 <b>New InBerlinWohnen Apartment</b>
-📍 <b>Bezirk:</b> {details['bezirk']}
-🏠 <b>Adresse:</b> {details['adresse']}
-📐 <b>Fläche:</b> {details['flaeche']}m²
-💰 <b>Gesamtmiete:</b> {details['rent_gross']}€
-🔗 {details['link']}
-"""
-                send_telegram(message)
-                print("New InBerlinWohnen listing sent:", details['link'])
+                # Convert back to float (since you stored it as string with €)
+                rent_value = float(details["rent_gross"].replace("€", "").replace(",", ""))
+
+                if rent_value <= 550:
+                    message = f"""
+        🚨 <b>New InBerlinWohnen Apartment</b>
+        📍 <b>Bezirk:</b> {details['bezirk']}
+        🏠 <b>Adresse:</b> {details['adresse']}
+        📐 <b>Fläche:</b> {details['flaeche']}m²
+        💰 <b>Gesamtmiete:</b> {details['rent_gross']}
+        🔗 {details['link']}
+        """
+                    send_telegram(message)
+                    print("New InBerlinWohnen listing sent:", details['link'])
 
         # Save updated known listings
         gewobag_known = gewobag_current
