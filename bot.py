@@ -245,16 +245,16 @@ try:
             if details:
                 # Convert back to float (since you stored it as string with €)
                 rent_value = float(details["rent_gross"].replace("€", "").replace(",", ""))
-
-                if rent_value <= 550:
+                matches = ["wbs", "senioren"]
+                if rent_value <= 550 and not any(x in  details["title"].lower() for x in matches):
                     message = f"""
-        🚨 <b>New InBerlinWohnen Apartment</b>
-        📍 <b>Bezirk:</b> {details['bezirk']}
-        🏠 <b>Adresse:</b> {details['adresse']}
-        📐 <b>Fläche:</b> {details['flaeche']}m²
-        💰 <b>Gesamtmiete:</b> {details['rent_gross']}
-        🔗 {details['link']}
-        """
+🚨 <b>New InBerlinWohnen Apartment</b>
+📍 <b>Bezirk:</b> {details['bezirk']}
+🏠 <b>Adresse:</b> {details['adresse']}
+📐 <b>Fläche:</b> {details['flaeche']}m²
+💰 <b>Gesamtmiete:</b> {details['rent_gross']}
+🔗 {details['link']}
+"""
                     send_telegram(message)
                     print("New InBerlinWohnen listing sent:", details['link'])
 
